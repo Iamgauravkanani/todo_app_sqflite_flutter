@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'Modules/Screens/Home_Screen/Views/home_screen.dart';
 import 'Modules/Screens/Splash_Screen/Views/splash_screen.dart';
 
 void main() {
@@ -9,8 +10,8 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       getPages: [
-        GetPage(name: "/", page: () => SplashScreen()),
-        GetPage(name: "/home", page: () => HomePage()),
+        GetPage(name: "/", page: () => HomeScreen()),
+        GetPage(name: "/home", page: () => HomeScreen()),
       ],
     ),
   );
