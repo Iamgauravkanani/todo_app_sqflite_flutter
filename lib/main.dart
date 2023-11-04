@@ -10,6 +10,7 @@ void main() {
       theme: ThemeData(useMaterial3: true),
       getPages: [
         GetPage(name: "/", page: () => SplashScreen()),
+        GetPage(name: "/home", page: () => HomePage()),
       ],
     ),
   );
