@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../../../Utils/Constants/global.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,27 +14,38 @@ class HomeScreen extends StatelessWidget {
           Container(
             height: 600,
             width: 400,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: NetworkImage(
-                "https://i.pinimg.com/originals/50/78/a0/5078a05eb1b6847d93383eaa4c0ed500.gif",
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                  "https://i.pinimg.com/originals/50/78/a0/5078a05eb1b6847d93383eaa4c0ed500.gif",
+                ),
+                fit: BoxFit.cover,
               ),
-              fit: BoxFit.cover,
-            )),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed('/todo');
+              },
               child: Container(
                 alignment: Alignment.center,
-                height: 80,
+                height: 60,
                 width: double.infinity,
                 decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0, 0),
+                      color: Colors.grey,
+                      blurRadius: 9,
+                      spreadRadius: 3,
+                    )
+                  ],
                   color: Global.appColor,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Text(
+                child: const Text(
                   "Add Your ToDo",
                   style: TextStyle(
                     color: Colors.white,
