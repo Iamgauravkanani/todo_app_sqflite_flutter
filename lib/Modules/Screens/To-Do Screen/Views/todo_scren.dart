@@ -1,9 +1,14 @@
+// ignore_for_file: must_be_immutable
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todo_app/Modules/Screens/Home_Screen/Model/DB_Model/db_model.dart';
+import 'package:todo_app/Modules/Utils/Helpers/DB%20Helper/db_helper.dart';
+import '../../../Utils/Constants/global.dart';
 
 class ToDo_Screen extends StatelessWidget {
-  const ToDo_Screen({super.key});
-
+  ToDo_Screen({super.key});
+  String? task;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +19,10 @@ class ToDo_Screen extends StatelessWidget {
             content: Column(
               children: [
                 TextFormField(
+                  onChanged: (val) {
+                    task = val;
+                  },
+                  controller: Global.taskController,
                   decoration: const InputDecoration(
                     hintText: "Enter todo",
                     border: OutlineInputBorder(),
@@ -23,7 +32,15 @@ class ToDo_Screen extends StatelessWidget {
                   height: 10,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () async {
+                    DB_Model data = DB_Model(task: task!);
+                    int? res = await DB_Helper.db_helper.insertTodo(data: data);
+                    Global.taskController.clear();
+                    log("==================================================");
+                    log("${task}");
+                    log("===================================================");
+                    Get.snackbar("To-DO App", "To-Do Added at $res");
+                  },
                   child: Ink(
                     decoration: const BoxDecoration(
                       boxShadow: [
@@ -55,7 +72,23 @@ class ToDo_Screen extends StatelessWidget {
         title: const Text("To-Do"),
         centerTitle: true,
       ),
-      body: Container(),
+      body: FutureBuilder(
+        future: DB_Helper.db_helper.displayToDo(),
+        builder: (ctx, snapshot) {
+          return Center(
+            child: Container(
+              height: 300,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(
+                        "https://img.freepik.com/premium-vector/no-data-concept-illustration_86047-488.jpg?w=360"),
+                    fit: BoxFit.cover),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
