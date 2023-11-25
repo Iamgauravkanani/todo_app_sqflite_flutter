@@ -42,7 +42,7 @@ class ToDo_Screen extends StatelessWidget {
                     Get.snackbar("To-DO App", "To-Do Added at $res");
                   },
                   child: Ink(
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
                           offset: Offset(0, 0),
@@ -51,7 +51,7 @@ class ToDo_Screen extends StatelessWidget {
                           color: Colors.grey,
                         ),
                       ],
-                      color: Colors.yellow,
+                      color: Global.appColor,
                     ),
                     child: Container(
                       alignment: Alignment.center,
