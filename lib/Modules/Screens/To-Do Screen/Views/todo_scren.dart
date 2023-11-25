@@ -81,9 +81,10 @@ class ToDo_Screen extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: NetworkImage(
-                        "https://img.freepik.com/premium-vector/no-data-concept-illustration_86047-488.jpg?w=360"),
-                    fit: BoxFit.cover),
+                  image: NetworkImage(
+                      "https://img.freepik.com/premium-vector/no-data-concept-illustration_86047-488.jpg?w=360"),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           );
