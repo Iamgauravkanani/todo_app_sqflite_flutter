@@ -3,12 +3,13 @@ import 'package:get/get.dart';
 import 'package:todo_app/Modules/Screens/To-Do%20Screen/Views/todo_scren.dart';
 import 'Modules/Screens/Home_Screen/Views/home_screen.dart';
 import 'Modules/Screens/Splash_Screen/Views/splash_screen.dart';
+import 'Modules/Utils/Constants/global.dart';
 
 void main() {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.yellow),
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Global.appColor),
       getPages: [
         GetPage(name: "/", page: () => SplashScreen()),
         GetPage(name: "/home", page: () => HomeScreen()),

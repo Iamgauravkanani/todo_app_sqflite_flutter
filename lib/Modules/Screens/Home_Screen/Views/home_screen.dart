@@ -16,8 +16,8 @@ class HomeScreen extends StatelessWidget {
             width: 400,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(
-                  "https://i.pinimg.com/originals/50/78/a0/5078a05eb1b6847d93383eaa4c0ed500.gif",
+                image: AssetImage(
+                  "lib/Modules/Utils/Assets/home_screen.gif",
                 ),
                 fit: BoxFit.cover,
               ),
